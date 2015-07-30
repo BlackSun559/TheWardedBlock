@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "TheWardedBlock",
+    "name": "The Warded Block",
+    "description": "The Night will never be the same...",
+    "version": "1.8-0.1.0",
+    "mcversion": "1.8",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "BlackSun559"
+    ],
+    "credits": "The Warded Man by Peter V. Brett",
+    "logoFile": "",
+    "screenshots": [],
+    "parent":"",
+    "dependencies": []
+  }
+]
