@@ -1,11 +1,12 @@
 package com.thewardedmen.thewardedblock;
 
 
-import com.thewardedmen.thewardedblock.client.gui.GuiFactory;
+import com.thewardedmen.thewardedblock.handler.ConfigurationHandler;
 import com.thewardedmen.thewardedblock.init.ModItems;
 import com.thewardedmen.thewardedblock.proxy.IProxy;
 import com.thewardedmen.thewardedblock.reference.Reference;
 import com.thewardedmen.thewardedblock.utility.LogHelper;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -25,6 +26,9 @@ public class TheWardedBlock
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
         ModItems.Init();
 
         LogHelper.info("Pre Initialization Complete!");
@@ -33,12 +37,12 @@ public class TheWardedBlock
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+        LogHelper.info("Initialization Complete!");
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-
+        LogHelper.info("Post Initialization Complete!");
     }
 }
