@@ -1,4 +1,4 @@
-package com.blacksun559.thewardedblock.utility;
+package com.blacksun559.thewardedblock.util;
 
 import com.blacksun559.thewardedblock.reference.Reference;
 import cpw.mods.fml.common.FMLLog;
