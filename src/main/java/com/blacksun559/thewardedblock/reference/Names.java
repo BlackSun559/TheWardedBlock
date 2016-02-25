@@ -1,4 +1,4 @@
-package com.thewardedmen.thewardedblock.reference;
+package com.blacksun559.thewardedblock.reference;
 
 public final class Names
 {

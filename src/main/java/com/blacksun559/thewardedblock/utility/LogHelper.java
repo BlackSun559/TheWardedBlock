@@ -1,6 +1,6 @@
-package com.thewardedmen.thewardedblock.utility;
+package com.blacksun559.thewardedblock.utility;
 
-import com.thewardedmen.thewardedblock.reference.Reference;
+import com.blacksun559.thewardedblock.reference.Reference;
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 

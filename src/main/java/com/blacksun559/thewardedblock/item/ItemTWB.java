@@ -1,6 +1,6 @@
-package com.thewardedmen.thewardedblock.item;
+package com.blacksun559.thewardedblock.item;
 
-import com.thewardedmen.thewardedblock.reference.Reference;
+import com.blacksun559.thewardedblock.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;

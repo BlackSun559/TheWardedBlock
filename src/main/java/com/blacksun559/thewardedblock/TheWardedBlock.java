@@ -1,11 +1,11 @@
-package com.thewardedmen.thewardedblock;
+package com.blacksun559.thewardedblock;
 
 
-import com.thewardedmen.thewardedblock.handler.ConfigurationHandler;
-import com.thewardedmen.thewardedblock.init.ModItems;
-import com.thewardedmen.thewardedblock.proxy.IProxy;
-import com.thewardedmen.thewardedblock.reference.Reference;
-import com.thewardedmen.thewardedblock.utility.LogHelper;
+import com.blacksun559.thewardedblock.handler.ConfigurationHandler;
+import com.blacksun559.thewardedblock.proxy.IProxy;
+import com.blacksun559.thewardedblock.utility.LogHelper;
+import com.blacksun559.thewardedblock.init.ModItems;
+import com.blacksun559.thewardedblock.reference.Reference;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;

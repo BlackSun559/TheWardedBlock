@@ -1,6 +1,6 @@
-package com.thewardedmen.thewardedblock.handler;
+package com.blacksun559.thewardedblock.handler;
 
-import com.thewardedmen.thewardedblock.reference.Reference;
+import com.blacksun559.thewardedblock.reference.Reference;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
@@ -34,7 +34,7 @@ public class ConfigurationHandler
 
     public static void loadConfiguration()
     {
-        damageChance = configuration.getFloat("damageChance", Configuration.CATEGORY_GENERAL, 0.05f, 0.001f, 1.0f, "Chance of damage applying to Demons. (Range of 1.0 - 0.001 and default of 0.05)");
+        damageChance = configuration.getFloat("damageChance", Configuration.CATEGORY_GENERAL, 0.05f, 0.001f, 1.0f, "Percent chance of damage applying to Demons. (Range of 1.0 - 0.001 and default of 0.05)");
 
         if(configuration.hasChanged())
         {

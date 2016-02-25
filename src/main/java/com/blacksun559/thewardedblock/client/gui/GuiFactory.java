@@ -1,4 +1,4 @@
-package com.thewardedmen.thewardedblock.client.gui;
+package com.blacksun559.thewardedblock.client.gui;
 
 import cpw.mods.fml.client.IModGuiFactory;
 import net.minecraft.client.Minecraft;

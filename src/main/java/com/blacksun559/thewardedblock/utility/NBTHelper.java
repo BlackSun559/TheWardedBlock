@@ -1,4 +1,4 @@
-package com.thewardedmen.thewardedblock.utility;
+package com.blacksun559.thewardedblock.utility;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
