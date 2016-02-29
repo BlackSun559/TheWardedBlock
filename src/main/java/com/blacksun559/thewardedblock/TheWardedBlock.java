@@ -3,6 +3,7 @@ package com.blacksun559.thewardedblock;
 
 import com.blacksun559.thewardedblock.handler.ConfigurationHandler;
 import com.blacksun559.thewardedblock.init.ModBlocks;
+import com.blacksun559.thewardedblock.init.ModTileEntities;
 import com.blacksun559.thewardedblock.proxy.IProxy;
 import com.blacksun559.thewardedblock.util.LogHelper;
 import com.blacksun559.thewardedblock.init.ModItems;
@@ -39,6 +40,10 @@ public class TheWardedBlock
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        ModTileEntities.init();
+
+        proxy.initRenderingAndTextures();
+
         LogHelper.info("Initialization Complete!");
     }
 

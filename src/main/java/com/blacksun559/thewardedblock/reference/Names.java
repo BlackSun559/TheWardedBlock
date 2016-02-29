@@ -39,4 +39,9 @@ public final class Names
     {
         public static final String WARD_SWORD = "wardSword";
     }
+
+    public static final class Containers
+    {
+        public static final String WARD_BENCH = "wardBench";
+    }
 }
