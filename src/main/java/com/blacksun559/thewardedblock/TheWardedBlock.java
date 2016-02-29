@@ -2,6 +2,7 @@ package com.blacksun559.thewardedblock;
 
 
 import com.blacksun559.thewardedblock.handler.ConfigurationHandler;
+import com.blacksun559.thewardedblock.init.ModBlocks;
 import com.blacksun559.thewardedblock.proxy.IProxy;
 import com.blacksun559.thewardedblock.util.LogHelper;
 import com.blacksun559.thewardedblock.init.ModItems;
@@ -30,6 +31,7 @@ public class TheWardedBlock
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
         ModItems.Init();
+        ModBlocks.Init();
 
         LogHelper.info("Pre Initialization Complete!");
     }

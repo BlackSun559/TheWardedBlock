@@ -5,17 +5,16 @@ import com.blacksun559.thewardedblock.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
-public class ItemTWB extends Item
+public class FoodItemTWB extends ItemFood
 {
-    // The base item from The Warded Block
-    public ItemTWB()
+    public FoodItemTWB(int chops, float saturation, boolean wolfable)
     {
-        super();
+        super(chops, saturation, wolfable);
         this.setCreativeTab(CreativeTab.TWB_TAB);
-        this.maxStackSize = 1;
+        this.maxStackSize = 64;
     }
 
     @Override

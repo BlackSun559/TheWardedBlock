@@ -1,33 +1,35 @@
 package com.blacksun559.thewardedblock.item;
 
 import com.blacksun559.thewardedblock.creativeTab.CreativeTab;
-import com.blacksun559.thewardedblock.reference.Reference;
+import com.blacksun559.thewardedblock.reference.Material;
+import com.blacksun559.thewardedblock.reference.Names;
+import com.blacksun559.thewardedblock.reference.Textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 
-public class ItemTWB extends Item
+public class ItemWardSword extends ItemSword
 {
-    // The base item from The Warded Block
-    public ItemTWB()
+    public ItemWardSword()
     {
-        super();
+        super(Material.Tools.WARD_SWORD);
         this.setCreativeTab(CreativeTab.TWB_TAB);
         this.maxStackSize = 1;
+        this.setUnlocalizedName(Names.Weapons.WARD_SWORD);
     }
 
     @Override
     public String getUnlocalizedName()
     {
-        return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s%s", Textures.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return String.format("item.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s%s", Textures.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
@@ -40,5 +42,11 @@ public class ItemTWB extends Item
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
+
+    @Override
+    public boolean getShareTag()
+    {
+        return true;
     }
 }

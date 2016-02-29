@@ -1,1 +1,5 @@
+item.thewardedblock:wardSword.name=The Branded Blade
 item.thewardedblock:wardBrush.name=Ward Brush
+item.thewardedblock:demonMeat.name=Demon Meat
+
+tile.thewardedblock:wardBench.name=Ward Bench
