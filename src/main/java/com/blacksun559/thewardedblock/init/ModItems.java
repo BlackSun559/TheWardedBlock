@@ -7,14 +7,28 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems
 {
-    public static final ItemTWB wardBrush = new ItemWardBrush();
+    // Items
+    public static final ItemDemonBone demonBone = new ItemDemonBone();
+
+    // Food
     public static final FoodItemTWB demonMeat = new ItemDemonMeat();
+
+    // Tools
+    public static final ItemTWB wardBrush = new ItemWardBrush();
     public static final ItemWardSword wardSword = new ItemWardSword();
+
 
     public static void Init()
     {
-        GameRegistry.registerItem(wardBrush, wardBrush.getUnlocalizedName().substring(20));
+        // Items
+        GameRegistry.registerItem(demonBone, demonBone.getUnlocalizedName().substring(20));
+
+        // Food
         GameRegistry.registerItem(demonMeat, demonMeat.getUnlocalizedName().substring(20));
+
+        // Tools
+        GameRegistry.registerItem(wardBrush, wardBrush.getUnlocalizedName().substring(20));
         GameRegistry.registerItem(wardSword, wardSword.getUnlocalizedName().substring(20));
+
     }
 }
