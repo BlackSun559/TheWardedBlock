@@ -1,6 +1,9 @@
 package com.blacksun559.thewardedblock.tileentity;
 
+import com.blacksun559.thewardedblock.network.PacketHandler;
+import com.blacksun559.thewardedblock.network.message.MessageTileEntityTWB;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -79,5 +82,10 @@ public class TileEntityTWB extends TileEntity
     public boolean hasOwner()
     {
         return ownerUUID != null;
+    }
+
+    public Packet getDescriptionPacket()
+    {
+        return PacketHandler.INSTANCE.getPacketFrom(new MessageTileEntityTWB(this));
     }
 }

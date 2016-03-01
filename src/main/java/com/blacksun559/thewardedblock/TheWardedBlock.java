@@ -4,6 +4,7 @@ package com.blacksun559.thewardedblock;
 import com.blacksun559.thewardedblock.handler.ConfigurationHandler;
 import com.blacksun559.thewardedblock.init.ModBlocks;
 import com.blacksun559.thewardedblock.init.ModTileEntities;
+import com.blacksun559.thewardedblock.network.PacketHandler;
 import com.blacksun559.thewardedblock.proxy.IProxy;
 import com.blacksun559.thewardedblock.util.LogHelper;
 import com.blacksun559.thewardedblock.init.ModItems;
@@ -33,6 +34,7 @@ public class TheWardedBlock
 
         ModItems.Init();
         ModBlocks.Init();
+        PacketHandler.init();
 
         LogHelper.info("Pre Initialization Complete!");
     }
@@ -42,7 +44,7 @@ public class TheWardedBlock
     {
         ModTileEntities.init();
 
-        proxy.initRenderingAndTextures();
+        proxy.initRenderingAndTextures(); // TODO fix render issue with wardBench and update readme
 
         LogHelper.info("Initialization Complete!");
     }

@@ -4,6 +4,8 @@ import com.blacksun559.thewardedblock.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.Packet;
 
 public class TileEntityWardBench extends TileEntityTWB implements IInventory
 {
@@ -105,13 +107,13 @@ public class TileEntityWardBench extends TileEntityTWB implements IInventory
     @Override
     public void openInventory()
     {
-
+        // NOOP
     }
 
     @Override
     public void closeInventory()
     {
-
+        // NOOP
     }
 
     @Override

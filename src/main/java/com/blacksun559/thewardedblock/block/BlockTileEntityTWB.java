@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,6 +25,8 @@ import java.util.Random;
 
 public class BlockTileEntityTWB extends BlockContainer
 {
+    private boolean isTileProvider = this instanceof ITileEntityProvider;
+
     protected BlockTileEntityTWB(Material material)
     {
         super(material);
@@ -138,7 +141,13 @@ public class BlockTileEntityTWB extends BlockContainer
     }
 
     @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return null;
+    public TileEntity createNewTileEntity(World world, int metadata)
+    {
+        TileEntity tileEntity = null;
+        if (isTileProvider)
+        {
+            tileEntity = ((ITileEntityProvider)this).createNewTileEntity(world, metadata);
+        }
+        return tileEntity;
     }
 }
