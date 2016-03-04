@@ -44,7 +44,7 @@ public class TheWardedBlock
     {
         ModTileEntities.init();
 
-        proxy.initRenderingAndTextures(); // TODO fix render issue with wardBench and update readme
+        proxy.initRenderingAndTextures(); // TODO update readme
 
         LogHelper.info("Initialization Complete!");
     }

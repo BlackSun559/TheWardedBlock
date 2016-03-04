@@ -13,6 +13,7 @@ public class ModelWardBench
 
     public ModelWardBench()
     {
+        System.out.println(Models.WARD_BENCH);
         modelWardBench = AdvancedModelLoader.loadModel(Models.WARD_BENCH);
     }
 
