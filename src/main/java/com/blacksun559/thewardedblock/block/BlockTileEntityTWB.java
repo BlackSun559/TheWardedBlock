@@ -39,13 +39,6 @@ public class BlockTileEntityTWB extends BlockContainer
         return String.format("tile.%s%s", Textures.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister)
-    {
-        blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-    }
-
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
@@ -146,7 +139,7 @@ public class BlockTileEntityTWB extends BlockContainer
         TileEntity tileEntity = null;
         if (isTileProvider)
         {
-            tileEntity = ((ITileEntityProvider)this).createNewTileEntity(world, metadata);
+            tileEntity = (this).createNewTileEntity(world, metadata);
         }
         return tileEntity;
     }
