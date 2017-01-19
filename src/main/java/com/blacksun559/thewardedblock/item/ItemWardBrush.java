@@ -1,35 +1,35 @@
 package com.blacksun559.thewardedblock.item;
 
-import com.blacksun559.thewardedblock.reference.Names;
-import com.blacksun559.thewardedblock.util.ItemHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import org.lwjgl.input.Keyboard;
-import scala.Console;
 
 public class ItemWardBrush extends ItemTWB
 {
-    public ItemWardBrush()
+    public ItemWardBrush(String name)
     {
-        super();
-        this.setUnlocalizedName(Names.Items.WARD_BRUSH);
+        super(name);
+        this.setMaxDamage(250);
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStack, World world, EntityPlayer player, EnumHand hand)
     {
+        return super.onItemRightClick(itemStack, world, player, hand);
+    }
 
-        // Checks for a owner of the item and assigns it if it doesn't have one.
-        if (!world.isRemote) {
-            if (!ItemHelper.hasOwnerUUID(itemStack)) {
-                ItemHelper.setOwner(itemStack, entityPlayer);
-            }
-        }
+    @Override
+    public EnumRarity getRarity(ItemStack stack)
+    {
+        return EnumRarity.UNCOMMON;
+    }
 
-        // Returns the itemStack that was right clicked
-        return itemStack;
+    @Override
+    public boolean hasEffect(ItemStack stack)
+    {
+        return true;
     }
 }
-
-

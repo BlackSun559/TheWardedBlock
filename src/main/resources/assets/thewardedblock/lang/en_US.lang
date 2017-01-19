@@ -1,6 +1,9 @@
+#English US Language file for The Warded Block
+#Creative Tab
 itemGroup.thewardedblock=The Warded Block
 
-item.thewardedblock:demonBone.demonBone_0.name=Splintering Demon Bone
+#Items
+item.demonBone.name=Splintering Demon Bone
 item.thewardedblock:demonBone.demonBone_1.name=Cracked Demon Bone
 item.thewardedblock:demonBone.demonBone_2.name=Demon Bone
 item.thewardedblock:demonBone.demonBone_3.name=Flawless Demon Bone
@@ -8,7 +11,7 @@ item.thewardedblock:demonBone.demonBone_4.name=Empowered Demon Bone
 
 item.thewardedblock:demonMeat.name=Demon Meat
 
-item.thewardedblock:wardBrush.name=Ward Brush
+item.wardBrush.name=Ward Brush
 item.thewardedblock:wardSword.name=The Branded Blade
 
 tile.thewardedblock:wardBench.name=Ward Bench

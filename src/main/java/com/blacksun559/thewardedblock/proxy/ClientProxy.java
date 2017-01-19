@@ -1,14 +1,9 @@
 package com.blacksun559.thewardedblock.proxy;
 
-import com.blacksun559.thewardedblock.client.renderer.item.ItemRendererWardBench;
-import com.blacksun559.thewardedblock.client.renderer.tileentity.TileEntityRendererWardBench;
-import com.blacksun559.thewardedblock.init.ModBlocks;
-import com.blacksun559.thewardedblock.reference.RenderIds;
-import com.blacksun559.thewardedblock.tileentity.TileEntityWardBench;
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.MinecraftForgeClient;
+import com.blacksun559.thewardedblock.init.ModItems;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy
 {
@@ -17,12 +12,19 @@ public class ClientProxy extends CommonProxy
         return this;
     }
 
-    public void initRenderingAndTextures()
+    @Override
+    public void preInit(FMLPreInitializationEvent event)
     {
-        RenderIds.wardBench = RenderingRegistry.getNextAvailableRenderId();
+    }
 
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.wardBench), new ItemRendererWardBench());
+    @Override
+    public void init(FMLInitializationEvent event)
+    {
+        ModItems.registerRenders();
+    }
 
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWardBench.class, new TileEntityRendererWardBench());
+    @Override
+    public void postInit(FMLPostInitializationEvent event)
+    {
     }
 }

@@ -2,33 +2,39 @@ package com.blacksun559.thewardedblock.init;
 
 import com.blacksun559.thewardedblock.item.*;
 import com.blacksun559.thewardedblock.reference.Reference;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems
 {
-    // Items
-    public static final ItemDemonBone demonBone = new ItemDemonBone();
-
-    // Food
-    public static final FoodItemTWB demonMeat = new ItemDemonMeat();
-
-    // Tools
-    public static final ItemTWB wardBrush = new ItemWardBrush();
-    public static final ItemWardSword wardSword = new ItemWardSword();
-
+    private static ItemTWB demonBone;
+    private static ItemTWB wardBrush;
 
     public static void Init()
     {
-        // Items
-        GameRegistry.registerItem(demonBone, demonBone.getUnlocalizedName().substring(20));
+        demonBone = new ItemDemonBone("demonBone");
+        wardBrush = new ItemWardBrush("wardBrush");
 
-        // Food
-        GameRegistry.registerItem(demonMeat, demonMeat.getUnlocalizedName().substring(20));
+        registerItems();
+    }
 
-        // Tools
-        GameRegistry.registerItem(wardBrush, wardBrush.getUnlocalizedName().substring(20));
-        GameRegistry.registerItem(wardSword, wardSword.getUnlocalizedName().substring(20));
+    public static void registerItems()
+    {
+        GameRegistry.register(demonBone, new ResourceLocation(Reference.MOD_ID, "demonBone"));
+        GameRegistry.register(wardBrush, new ResourceLocation(Reference.MOD_ID, "wardBrush"));
+    }
 
+    public static void registerRenders()
+    {
+        registerRender(demonBone);
+        registerRender(wardBrush);
+    }
+
+    public static void registerRender(ItemTWB item)
+    {
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(Reference.MOD_ID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
     }
 }

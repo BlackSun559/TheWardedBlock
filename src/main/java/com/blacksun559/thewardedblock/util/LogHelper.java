@@ -1,7 +1,7 @@
 package com.blacksun559.thewardedblock.util;
 
 import com.blacksun559.thewardedblock.reference.Reference;
-import cpw.mods.fml.common.FMLLog;
+import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
 public class LogHelper
