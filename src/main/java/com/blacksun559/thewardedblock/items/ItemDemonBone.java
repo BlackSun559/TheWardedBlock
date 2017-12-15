@@ -1,7 +1,8 @@
-package com.blacksun559.thewardedblock.item;
+package com.blacksun559.thewardedblock.items;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -14,9 +15,9 @@ public class ItemDemonBone extends ItemTWB
     }
 
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced)
+    public void addInformation(ItemStack stack, World world, List<String> tooltip,  ITooltipFlag flag)
     {
         tooltip.add("Basic Demon bone. Has very little power.");
-        super.addInformation(stack, player, tooltip, advanced);
+        super.addInformation(stack, world, tooltip, flag);
     }
 }

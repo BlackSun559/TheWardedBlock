@@ -1,8 +1,8 @@
 package com.blacksun559.thewardedblock.creativeTab;
 
+import com.blacksun559.thewardedblock.init.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class CreativeTab extends CreativeTabs
 {
@@ -12,8 +12,8 @@ public class CreativeTab extends CreativeTabs
     }
 
     @Override
-    public Item getTabIconItem()
+    public ItemStack getTabIconItem()
     {
-        return Items.DIAMOND;
+        return new ItemStack(ModItems.BONE_DEMON);
     }
 }

@@ -4,44 +4,30 @@ public final class Names
 {
     public static final class Items
     {
-        public static final String WARD_BRUSH = "wardBrush";
-        public static final String DEMON_MEAT = "demonMeat";
-        public static final String DEMON_BONE = "demonBone";
-        public static final String DEMON_BONE_0 = "demonBone_0";
-        public static final String DEMON_BONE_1 = "demonBone_1";
-        public static final String DEMON_BONE_2 = "demonBone_2";
-        public static final String DEMON_BONE_3 = "demonBone_3";
-        public static final String DEMON_BONE_4 = "demonBone_4";
-        public static final String[] DEMON_BONE_SUBTYPES = {DEMON_BONE_0, DEMON_BONE_1, DEMON_BONE_2, DEMON_BONE_3, DEMON_BONE_4};
+        public static final String WARD_BRUSH = "ward_brush";
+        public static final String MEAT_DEMON = "meat_demon";
+        public static final String BONE_DEMON = "bone_demon";
     }
 
     public static final class Blocks
     {
-        public static final String WARD_BENCH = "wardBench";
-    }
-
-    public static final class NBT
-    {
-        public static final String OWNER = "owner";
-        public static final String UUID_MOST_SIG = "UUIDMostSig";
-        public static final String UUID_LEAST_SIG = "UUIDLeastSig";
-        public static final String OWNER_UUID_MOST_SIG = "ownerUUIDMostSig";
-        public static final String OWNER_UUID_LEAST_SIG = "ownerUUIDLeastSig";
+        public static final String WARD_BENCH = "bench_ward";
+        public static final String ORE_CRYSTAL = "ore_crystal";
     }
 
     public static final class Materials
     {
-        public static final String DEMON_BONE = "demonBone";
-        public static final String WARD_SWORD = "wardSword";
+        public static final String BONE_DEMON = "bone_demon";
+        public static final String SWORD_WARD = "sword_ward";
     }
 
     public static final class Weapons
     {
-        public static final String WARD_SWORD = "wardSword";
+        public static final String SWORD_WARD = "sword_ward";
     }
 
     public static final class Containers
     {
-        public static final String WARD_BENCH = "wardBench";
+        public static final String BENCH_WARD = "bench_ward";
     }
 }

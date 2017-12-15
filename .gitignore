@@ -24,3 +24,4 @@ gradlew.bat
 /*.iws
 /atlassian-ide-plugin.xml
 gradlew.bat
+/classes

@@ -3,16 +3,15 @@
 itemGroup.thewardedblock=The Warded Block
 
 #Items
-item.demonBone.name=Splintering Demon Bone
-item.thewardedblock:demonBone.demonBone_1.name=Cracked Demon Bone
-item.thewardedblock:demonBone.demonBone_2.name=Demon Bone
-item.thewardedblock:demonBone.demonBone_3.name=Flawless Demon Bone
-item.thewardedblock:demonBone.demonBone_4.name=Empowered Demon Bone
+item.thewardedblock:ward_brush.name=Ward Brush
 
-item.thewardedblock:demonMeat.name=Demon Meat
 
-item.wardBrush.name=Ward Brush
-item.thewardedblock:wardSword.name=The Branded Blade
+item.thewardedblock:bone_demon.name=Splintering Demon Bone
+item.thewardedblock:bone_demon.bone_demon_1.name=Cracked Demon Bone
+item.thewardedblock:bone_demon.bone_demon_2.name=Demon Bone
+item.thewardedblock:bone_demon.bone_demon_3.name=Flawless Demon Bone
+item.thewardedblock:bone_demon.bone_demon_4.name=Empowered Demon Bone
 
-tile.thewardedblock:wardBench.name=Ward Bench
+#Blocks
+tile.ore_crystal.name=Crystal Ore
 

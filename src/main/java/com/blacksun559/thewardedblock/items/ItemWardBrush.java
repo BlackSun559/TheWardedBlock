@@ -1,4 +1,4 @@
-package com.blacksun559.thewardedblock.item;
+package com.blacksun559.thewardedblock.items;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;

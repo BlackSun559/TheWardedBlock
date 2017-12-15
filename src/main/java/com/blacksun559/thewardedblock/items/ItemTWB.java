@@ -1,6 +1,10 @@
-package com.blacksun559.thewardedblock.item;
+package com.blacksun559.thewardedblock.items;
 
 import com.blacksun559.thewardedblock.TheWardedBlock;
+import com.blacksun559.thewardedblock.init.ModItems;
+import com.blacksun559.thewardedblock.reference.Reference;
+import com.blacksun559.thewardedblock.util.interfaces.IModel;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -14,34 +18,46 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemTWB extends Item
+public class ItemTWB extends Item implements IModel
 {
-    // The base item from The Warded Block
+    // The base items from The Warded Block
     public ItemTWB(String name)
     {
-        this.setUnlocalizedName(name);
+        setItemName(this, name);
         this.setCreativeTab(TheWardedBlock.thewardedblock);
         this.setMaxStackSize(1);
+
+        ModItems.ITEMS.add(this);
+    }
+
+    @Override
+    public void registerModels()
+    {
+        TheWardedBlock.proxy.registerItemRender(this, 0, "inventory");
+    }
+
+    public static void setItemName(Item item, String itemName)
+    {
+        item.setRegistryName(Reference.MOD_ID, itemName);
+        item.setUnlocalizedName(item.getRegistryName().toString());
     }
 
     //Right click anywhere.
-    @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStack, World world, EntityPlayer player, EnumHand hand)
     {
-        return super.onItemRightClick(itemStack, world, player, hand);
+        return super.onItemRightClick(world, player, hand);
     }
 
-    //Right click on block/entity.
-    @Override
+    //Right click on blocks/entity.
     public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        return super.onItemUse(stack, player, world, pos, hand, facing, hitX, hitY, hitZ);
+        return super.onItemUse(player, world, pos, hand, facing, hitX, hitY, hitZ);
     }
 
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced)
+    public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
     {
-        super.addInformation(stack, player, tooltip, advanced);
+        super.addInformation(stack, world, tooltip, flag);
     }
 
     @Override
