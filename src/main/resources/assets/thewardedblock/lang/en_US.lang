@@ -12,6 +12,10 @@ item.thewardedblock:bone_demon.bone_demon_2.name=Demon Bone
 item.thewardedblock:bone_demon.bone_demon_3.name=Flawless Demon Bone
 item.thewardedblock:bone_demon.bone_demon_4.name=Empowered Demon Bone
 
-#Blocks
-tile.ore_crystal.name=Crystal Ore
-
+#Ores
+tile.thewardedblock:ore_end_silver.name=Ender Silver Ore
+tile.thewardedblock:ore_end_crystal.name=Ender Crystal Ore
+tile.thewardedblock:ore_nether_silver.name=Fiery Silver Ore
+tile.thewardedblock:ore_nether_crystal.name=Fiery Crystal Ore
+tile.thewardedblock:ore_overworld_silver.name=Silver Ore
+tile.thewardedblock:ore_overworld_crystal.name=Crystal Ore

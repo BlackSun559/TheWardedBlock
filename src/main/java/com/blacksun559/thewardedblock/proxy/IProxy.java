@@ -11,4 +11,6 @@ public interface IProxy
     void postInit();
 
     void registerItemRender(Item item, int meta, String id);
+
+    void registerVariantRender(Item item, int meta, String filename, String variant);
 }

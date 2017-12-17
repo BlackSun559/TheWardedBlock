@@ -5,6 +5,7 @@ import com.blacksun559.thewardedblock.init.ModItems;
 import com.blacksun559.thewardedblock.util.interfaces.IModel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;

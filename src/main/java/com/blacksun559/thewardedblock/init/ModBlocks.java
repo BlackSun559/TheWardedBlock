@@ -1,16 +1,16 @@
 package com.blacksun559.thewardedblock.init;
 
-import com.blacksun559.thewardedblock.blocks.BlockCrystalOre;
-import com.blacksun559.thewardedblock.blocks.BlockTWB;
-import com.blacksun559.thewardedblock.reference.Names;
-import net.minecraft.block.material.Material;
+import com.blacksun559.thewardedblock.blocks.BlockOres;
+import net.minecraft.block.Block;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModBlocks
 {
-    public static final List<BlockTWB> BLOCKS = new ArrayList<>();
+    public static final List<Block> BLOCKS = new ArrayList<>();
 
-    public static final BlockTWB ORE_CRYSTAL = new BlockCrystalOre(Names.Blocks.ORE_CRYSTAL, Material.ROCK);
+    public static final Block ORE_END = new BlockOres("ore_end", "end");
+    public static final Block ORE_NETHER = new BlockOres("ore_nether", "nether");
+    public static final Block ORE_OVERWORLD = new BlockOres("ore_overworld", "overworld");
 }

@@ -12,7 +12,7 @@ public final class Names
     public static final class Blocks
     {
         public static final String WARD_BENCH = "bench_ward";
-        public static final String ORE_CRYSTAL = "ore_crystal";
+        public static final String ORE_SILVER = "ore_silver";
     }
 
     public static final class Materials

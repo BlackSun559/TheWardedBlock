@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "thewardedblock:blocks/ore_overworld_silver"
+  }
+}
