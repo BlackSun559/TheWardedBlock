@@ -23,6 +23,6 @@ public class ItemBlockVariant extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-        return super.getUnlocalizedName() + "_" + EnumHandler.EnumType.values()[stack.getMetadata()].getName();
+        return super.getUnlocalizedName() + "_" + EnumHandler.OreEnumType.values()[stack.getMetadata()].getName();
     }
 }

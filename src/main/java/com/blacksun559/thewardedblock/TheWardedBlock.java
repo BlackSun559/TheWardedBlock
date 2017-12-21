@@ -1,10 +1,16 @@
 package com.blacksun559.thewardedblock;
 
 import com.blacksun559.thewardedblock.creativeTab.CreativeTab;
+import com.blacksun559.thewardedblock.init.ModCapabilities;
+import com.blacksun559.thewardedblock.init.ModMapGen;
+import com.blacksun559.thewardedblock.init.ModRecipes;
 import com.blacksun559.thewardedblock.proxy.IProxy;
 import com.blacksun559.thewardedblock.util.LogHelper;
 import com.blacksun559.thewardedblock.reference.Reference;
+import com.blacksun559.thewardedblock.util.handlers.EventHandler;
+import com.blacksun559.thewardedblock.util.handlers.TWBPacketHandler;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -25,19 +31,29 @@ public class TheWardedBlock
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        TWBPacketHandler.init();
+
         thewardedblock = new CreativeTab(CreativeTabs.getNextID(), "thewardedblock");
+
+        ModCapabilities.registerCapabilities();
+
         LogHelper.info("Pre Initialization Complete!");
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        ModRecipes.registerRecipes();
+        ModMapGen.registerWorldGenerators();
+
         LogHelper.info("Initialization Complete!");
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        MinecraftForge.EVENT_BUS.register(new EventHandler());
+
         LogHelper.info("Post Initialization Complete!");
     }
 }

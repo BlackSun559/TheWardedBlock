@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern": [
+    "b"
+  ],
+
+  "key": {
+    "b":
+    {
+      "item": "thewardedblock:block_silver"
+    }
+  },
+
+  "result": {
+    "item": "thewardedblock:ingot_silver",
+    "count": 9
+  }
+}

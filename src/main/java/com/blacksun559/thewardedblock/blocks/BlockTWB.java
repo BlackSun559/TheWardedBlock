@@ -18,6 +18,7 @@ public class BlockTWB extends Block implements IModel
         this.setRegistryName(Reference.MOD_ID, name);
         this.setUnlocalizedName(this.getRegistryName().toString());
         this.setCreativeTab(TheWardedBlock.thewardedblock);
+        this.setHardness(0.5f);
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

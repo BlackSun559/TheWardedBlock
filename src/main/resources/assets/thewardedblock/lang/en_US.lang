@@ -5,17 +5,31 @@ itemGroup.thewardedblock=The Warded Block
 #Items
 item.thewardedblock:ward_brush.name=Ward Brush
 
-
 item.thewardedblock:bone_demon.name=Splintering Demon Bone
 item.thewardedblock:bone_demon.bone_demon_1.name=Cracked Demon Bone
 item.thewardedblock:bone_demon.bone_demon_2.name=Demon Bone
 item.thewardedblock:bone_demon.bone_demon_3.name=Flawless Demon Bone
 item.thewardedblock:bone_demon.bone_demon_4.name=Empowered Demon Bone
 
+item.thewardedblock:ingot_silver.name=Silver Ingot
+
+item.thewardedblock:meat_demon.name=Demon Meat
+
+item.thewardedblock:item_debug.name=Debug
+
+#Blocks
 #Ores
+#End
 tile.thewardedblock:ore_end_silver.name=Ender Silver Ore
 tile.thewardedblock:ore_end_crystal.name=Ender Crystal Ore
+
+#Nether
 tile.thewardedblock:ore_nether_silver.name=Fiery Silver Ore
 tile.thewardedblock:ore_nether_crystal.name=Fiery Crystal Ore
+
+#Overworld
 tile.thewardedblock:ore_overworld_silver.name=Silver Ore
 tile.thewardedblock:ore_overworld_crystal.name=Crystal Ore
+
+#Blocks
+tile.thewardedblock:block_silver.name=Silver Block

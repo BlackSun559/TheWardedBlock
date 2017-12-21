@@ -20,7 +20,7 @@ import net.minecraft.util.NonNullList;
 
 public class BlockOres extends Block implements IModel
 {
-    public static final IProperty<EnumHandler.EnumType> VARIANT = PropertyEnum.create("variant", EnumHandler.EnumType.class);
+    public static final IProperty<EnumHandler.OreEnumType> VARIANT = PropertyEnum.create("variant", EnumHandler.OreEnumType.class);
 
 
     private final String dimension;
@@ -32,7 +32,10 @@ public class BlockOres extends Block implements IModel
         this.setCreativeTab(TheWardedBlock.thewardedblock);
         this.setRegistryName(Reference.MOD_ID, name);
         this.setUnlocalizedName(this.getRegistryName().toString());
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumHandler.EnumType.CRYSTAL));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumHandler.OreEnumType.CRYSTAL));
+
+        this.setHardness(1.0f);
+        this.setHarvestLevel("pickaxe", 1);
 
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlockVariant(this).setRegistryName(this.getRegistryName()));
@@ -47,12 +50,12 @@ public class BlockOres extends Block implements IModel
     @SuppressWarnings("deprecation")
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return getDefaultState().withProperty(VARIANT, EnumHandler.EnumType.byMetaData(meta));
+        return getDefaultState().withProperty(VARIANT, EnumHandler.OreEnumType.byMetaData(meta));
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return state.getValue(VARIANT).getMeta();
+        return state.getValue(VARIANT).getType();
     }
 
     @Override
@@ -62,9 +65,9 @@ public class BlockOres extends Block implements IModel
 
     @Override
     public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
-        for(final EnumHandler.EnumType enumType : EnumHandler.EnumType.values())
+        for(final EnumHandler.OreEnumType oreEnumType : EnumHandler.OreEnumType.values())
         {
-            items.add(new ItemStack(this, 1, enumType.getMeta()));
+            items.add(new ItemStack(this, 1, oreEnumType.getType()));
         }
     }
 
@@ -74,14 +77,14 @@ public class BlockOres extends Block implements IModel
 
 
 
-        return EnumHandler.EnumType.byMetaData(metadata).getName();
+        return EnumHandler.OreEnumType.byMetaData(metadata).getName();
     }
 
     @Override
     public void registerModels() {
-        for(int i = 0; i < EnumHandler.EnumType.values().length; i++)
+        for(int i = 0; i < EnumHandler.OreEnumType.values().length; i++)
         {
-            TheWardedBlock.proxy.registerVariantRender(Item.getItemFromBlock(this), i, "ore_" + this.dimension, "variant=" + EnumHandler.EnumType.values()[i].getName());
+            TheWardedBlock.proxy.registerVariantRender(Item.getItemFromBlock(this), i, "ore_" + this.dimension, "variant=" + EnumHandler.OreEnumType.values()[i].getName());
         }
     }
 }

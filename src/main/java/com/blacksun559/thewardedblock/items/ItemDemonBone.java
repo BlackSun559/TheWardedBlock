@@ -1,5 +1,6 @@
 package com.blacksun559.thewardedblock.items;
 
+import com.blacksun559.thewardedblock.items.Base.ItemTWB;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
