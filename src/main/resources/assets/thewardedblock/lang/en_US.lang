@@ -4,6 +4,11 @@ itemGroup.thewardedblock=The Warded Block
 
 #Items
 item.thewardedblock:ward_brush.name=Ward Brush
+item.thewardedblock:item_debug.name=Debug
+item.thewardedblock:item_bone_needle.name=Bone Needle
+item.thewardedblock:item_iron_needle.name=Iron Needle
+item.thewardedblock:item_file.name=File
+item.thewardedblock:item_knife.name=Carving Knife
 
 item.thewardedblock:bone_demon.name=Splintering Demon Bone
 item.thewardedblock:bone_demon.bone_demon_1.name=Cracked Demon Bone
@@ -14,8 +19,6 @@ item.thewardedblock:bone_demon.bone_demon_4.name=Empowered Demon Bone
 item.thewardedblock:ingot_silver.name=Silver Ingot
 
 item.thewardedblock:meat_demon.name=Demon Meat
-
-item.thewardedblock:item_debug.name=Debug
 
 #Blocks
 #Ores

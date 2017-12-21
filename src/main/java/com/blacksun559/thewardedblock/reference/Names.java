@@ -9,6 +9,10 @@ public final class Names
         public static final String BONE_DEMON = "bone_demon";
         public static final String INGOT_SILVER = "ingot_silver";
         public static final String ITEM_DEBUG = "item_debug";
+        public static final String ITEM_BONE_NEEDLE = "item_bone_needle";
+        public static final String ITEM_IRON_NEEDLE = "item_iron_needle";
+        public static final String ITEM_FILE = "item_file";
+        public static final String ITEM_KNIFE = "item_knife";
     }
 
     public static final class Blocks
