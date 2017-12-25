@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "bone"
+    },
+    {
+      "item": "thewardedblock:item_knife"
+    }
+  ],
+  "result": {
+    "item": "thewardedblock:item_bone_needle"
+  }
+}

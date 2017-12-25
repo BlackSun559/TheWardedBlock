@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "i",
+    "s"
+  ],
+  "key": {
+    "i":
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "s":
+    {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    }
+  },
+  "result": {
+    "item": "thewardedblock:item_knife"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    {
+      "item": "thewardedblock:item_file"
+    }
+  ],
+  "result": {
+    "item": "thewardedblock:item_iron_needle"
+  }
+}
