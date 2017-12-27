@@ -1,27 +1,55 @@
 package com.blacksun559.thewardedblock.items;
 
+import com.blacksun559.thewardedblock.TheWardedBlock;
 import com.blacksun559.thewardedblock.capabilties.eaten.CapabilityEaten;
 import com.blacksun559.thewardedblock.capabilties.eaten.IEaten;
 import com.blacksun559.thewardedblock.capabilties.warded.CapabilityEntityWarded;
 import com.blacksun559.thewardedblock.capabilties.warded.IWarded;
 import com.blacksun559.thewardedblock.init.ModItems;
 import com.blacksun559.thewardedblock.items.Base.ItemTWB;
+import com.blacksun559.thewardedblock.tileentity.TileEntityWard;
+import com.blacksun559.thewardedblock.util.PlayerUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 public class ItemDebug extends ItemTWB
 {
+    private final int MESSAGE_EATEN_RESET = TheWardedBlock.getMessageID();
+    private final int MESSAGE_GET_EATEN = TheWardedBlock.getMessageID();
+    private final int MESSAGE_CLEAR_WARDS = TheWardedBlock.getMessageID();
+    private final int MESSAGE_GET_WARDS= TheWardedBlock.getMessageID();
+    private final int MESSAGE_NO_WARDS = TheWardedBlock.getMessageID();
+
     public ItemDebug(String name)
     {
         super(name);
+    }
+
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        if(!world.isRemote)
+        {
+            TileEntity tileEntity = world.getTileEntity(pos);
+
+            if(tileEntity != null && tileEntity instanceof TileEntityWard)
+            {
+//                tileEntity;
+            }
+        }
+
+        return EnumActionResult.SUCCESS;
     }
 
     @Override
@@ -60,7 +88,6 @@ public class ItemDebug extends ItemTWB
     {
         if(!player.getEntityWorld().isRemote)
         {
-            System.out.println(player);
             debugPlayerWards(player.getEntityWorld(), player, target, hand);
         }
 
@@ -118,12 +145,12 @@ public class ItemDebug extends ItemTWB
             final IEaten eaten = CapabilityEaten.getEaten(player);
             if(player.isSneaking())
             {
-                player.sendMessage(new TextComponentTranslation("Total Eaten Reset"));
+                PlayerUtils.messageOnce(MESSAGE_EATEN_RESET, new TextComponentTranslation("Total Eaten Reset"));
                 eaten.setEaten(0);
             }
             else
             {
-                player.sendMessage(new TextComponentTranslation("Total Eaten: " + eaten.getEaten()));
+                PlayerUtils.messageOnce(MESSAGE_GET_EATEN, new TextComponentTranslation("Total Eaten: " + eaten.getEaten()));
             }
         }
     }
@@ -145,14 +172,23 @@ public class ItemDebug extends ItemTWB
                 warded = CapabilityEntityWarded.getWards(entity);
             }
 
-            if(warded.getWards().length > 0)
+            if(player.isSneaking())
             {
-                player.sendMessage(new TextComponentTranslation(target.getName() + "'s first ward: " + warded.getWards()[0]));
+                warded.clearWards();
+                PlayerUtils.messageOnce(MESSAGE_CLEAR_WARDS, new TextComponentTranslation(target.getName() + "'s wards removed."));
             }
             else
             {
-                player.sendMessage(new TextComponentTranslation(target.getName() + " is not warded."));
+                if(warded.getWards().length > 0)
+                {
+                    PlayerUtils.messageOnce(MESSAGE_GET_WARDS, new TextComponentTranslation(target.getName() + "'s first ward: " + warded.getWards()[0] + " out of " + warded.getWards().length + " wards"));
+                }
+                else
+                {
+                    PlayerUtils.messageOnce(MESSAGE_NO_WARDS, new TextComponentTranslation(target.getName() + " is not warded."));
+                }
             }
+
         }
     }
 }

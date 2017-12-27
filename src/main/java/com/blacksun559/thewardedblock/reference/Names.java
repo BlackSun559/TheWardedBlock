@@ -19,6 +19,7 @@ public final class Names
     {
         public static final String WARD_BENCH = "bench_ward";
         public static final String BLOCK_SILVER = "block_silver";
+        public static final String BLOCK_WARD = "block_ward";
         public static final String ORE_END = "ore_end";
         public static final String ORE_NETHER = "ore_nether";
         public static final String ORE_OVERWORLD = "ore_overworld";

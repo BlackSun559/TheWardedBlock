@@ -30,15 +30,30 @@ public class EntityWarded implements IWarded
     }
 
     @Override
+    public ArrayList<Integer> getArrayList()
+    {
+        return this.wardIDs;
+    }
+
+    @Override
     public void addWard(int id)
     {
-        this.wardIDs.add(id);
+        if(!this.wardIDs.contains(id))
+        {
+            this.wardIDs.add(id);
+        }
     }
 
     @Override
     public void removeWard(int id)
     {
         this.wardIDs.remove(id);
+    }
+
+    @Override
+    public void clearWards()
+    {
+        this.wardIDs.clear();
     }
 
     @Override

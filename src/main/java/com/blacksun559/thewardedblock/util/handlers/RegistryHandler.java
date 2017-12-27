@@ -2,6 +2,7 @@ package com.blacksun559.thewardedblock.util.handlers;
 
 import com.blacksun559.thewardedblock.init.ModBlocks;
 import com.blacksun559.thewardedblock.init.ModItems;
+import com.blacksun559.thewardedblock.tileentity.TileEntityWard;
 import com.blacksun559.thewardedblock.util.interfaces.IModel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -9,6 +10,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @EventBusSubscriber
 public class RegistryHandler 
@@ -18,6 +20,8 @@ public class RegistryHandler
     public static void onItemRegister(RegistryEvent.Register<Item> event)
     {
         event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+
+        GameRegistry.registerTileEntity(TileEntityWard.class, "tile_ward");
     }
 
     @SubscribeEvent

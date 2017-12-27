@@ -36,3 +36,5 @@ tile.thewardedblock:ore_overworld_crystal.name=Crystal Ore
 
 #Blocks
 tile.thewardedblock:block_silver.name=Silver Block
+
+tile.thewardedblock:block_ward.name=Warded Block
