@@ -1,26 +1,25 @@
 package com.blacksun559.thewardedblock.blocks;
 
 import com.blacksun559.thewardedblock.TheWardedBlock;
+import com.blacksun559.thewardedblock.init.ModBlocks;
 import com.blacksun559.thewardedblock.init.ModItems;
 import com.blacksun559.thewardedblock.tileentity.TileEntityWard;
-import com.blacksun559.thewardedblock.util.EntityUtils;
 import com.blacksun559.thewardedblock.util.PlayerUtils;
-import com.blacksun559.thewardedblock.util.WardType;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 public class BlockWard extends BlockTWB implements ITileEntityProvider
 {
@@ -34,11 +33,30 @@ public class BlockWard extends BlockTWB implements ITileEntityProvider
         super(name, Material.ROCK);
     }
 
-    @Nullable
+//    @Nullable
+//    @Override
+//    public TileEntity createTileEntity(World world, IBlockState state)
+//    {
+//        return new TileEntityWard();
+//    }
+
+
     @Override
-    public TileEntity createTileEntity(World world, IBlockState state)
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
     {
-        return new TileEntityWard();
+        this.placeBarrier(world, pos);
+    }
+
+    @Override
+    public void onEntityWalk(World world, BlockPos pos, Entity entity)
+    {
+        if(world.getBlockState(pos.up()).getBlock() != ModBlocks.BLOCK_BARRIER)
+        {
+            System.out.println("spawning");
+            this.placeBarrier(world, pos);
+        }
+
+        super.onEntityWalk(world, pos, entity);
     }
 
     @Nullable
@@ -51,24 +69,6 @@ public class BlockWard extends BlockTWB implements ITileEntityProvider
     public TileEntityWard getTileEntity(World world, BlockPos pos)
     {
         return (TileEntityWard) world.getTileEntity(pos);
-    }
-
-    @SuppressWarnings("deprecation")
-    @Override
-    public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entity, boolean isActualState)
-    {
-        TileEntityWard tileEntityWard = this.getTileEntity(world, pos);
-
-        if(entity != null)
-        {
-            if(WardType.isValidTarget(entity, tileEntityWard.getWards()))
-            {
-                this.repel(entity, pos);
-                entity.velocityChanged = true;
-            }
-        }
-
-        super.addCollisionBoxToList(state, world, pos, entityBox, collidingBoxes, entity, isActualState);
     }
 
     @Override
@@ -87,14 +87,14 @@ public class BlockWard extends BlockTWB implements ITileEntityProvider
                     PlayerUtils.messageOnce(MESSAGE_CLEAR, new TextComponentTranslation("Clearing wards."));
                     tileEntity.clearWards();
                 }
-                else if(tileEntity.getWards().size() > 0)
-                {
-                    PlayerUtils.messageOnce(MESSAGE_GET, new TextComponentTranslation("Block has ward " + WardType.WardNames.values()[tileEntity.getWards().get(0)] + "."));
-                }
-                else
-                {
-                    PlayerUtils.messageOnce(MESSAGE_NONE, new TextComponentTranslation("No wards."));
-                }
+//                else if(tileEntity.getWards().size() > 0)
+//                {
+//                    PlayerUtils.messageOnce(MESSAGE_GET, new TextComponentTranslation("Block has ward " + WardType.WardNames.values()[tileEntity.getWards().get(0)] + "."));
+//                }
+//                else
+//                {
+//                    PlayerUtils.messageOnce(MESSAGE_NONE, new TextComponentTranslation("No wards."));
+//                }
 
                 notBrush = true;
             }
@@ -103,8 +103,20 @@ public class BlockWard extends BlockTWB implements ITileEntityProvider
         return notBrush;
     }
 
-    private void repel(Entity entity, BlockPos pos)
+    private void placeBarrier(World world, BlockPos pos)
     {
-        EntityUtils.pushEntity(entity, pos.offset(EnumFacing.UP, 2), -0.75f);
+        int i = 1;
+        while(i < 4)
+        {
+            if(world.isAirBlock(pos.up(i)))
+            {
+                world.setBlockState(pos.up(i), ModBlocks.BLOCK_BARRIER.getDefaultState());
+                i++;
+            }
+            else
+            {
+                i = 4;
+            }
+        }
     }
 }

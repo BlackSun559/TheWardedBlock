@@ -2,12 +2,14 @@ package com.blacksun559.thewardedblock;
 
 import com.blacksun559.thewardedblock.creativeTab.CreativeTab;
 import com.blacksun559.thewardedblock.init.ModCapabilities;
+import com.blacksun559.thewardedblock.init.ModEntities;
 import com.blacksun559.thewardedblock.init.ModMapGen;
 import com.blacksun559.thewardedblock.init.ModRecipes;
 import com.blacksun559.thewardedblock.proxy.IProxy;
 import com.blacksun559.thewardedblock.reference.Reference;
 import com.blacksun559.thewardedblock.util.LogHelper;
 import com.blacksun559.thewardedblock.util.handlers.EventHandler;
+import com.blacksun559.thewardedblock.util.handlers.RenderHandler;
 import com.blacksun559.thewardedblock.util.handlers.TWBPacketHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,6 +42,8 @@ public class TheWardedBlock
         thewardedblock = new CreativeTab(CreativeTabs.getNextID(), "thewardedblock");
 
         ModCapabilities.registerCapabilities();
+        ModEntities.registerEntities();
+        RenderHandler.registerEntityRenders();
 
         LogHelper.info("Pre Initialization Complete!");
     }

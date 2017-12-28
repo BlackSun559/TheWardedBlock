@@ -1,11 +1,11 @@
 package com.blacksun559.thewardedblock.util;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.passive.EntityCow;
 
 import java.util.ArrayList;
 
@@ -20,11 +20,11 @@ public class WardType
             switch(wardID)
             {
                 case 0:
-                    valid = entity instanceof EntityPlayer;
+                    valid = entity instanceof EntityItem;
                     break;
 
                 case 1:
-                    valid =  entity instanceof EntityArrow;
+                    valid =  entity instanceof EntityCow;
                     break;
 
                 case 2:
@@ -51,7 +51,7 @@ public class WardType
 
     public enum WardNames
     {
-        player,
+        item,
         arrow,
         zombie,
         skeleton,

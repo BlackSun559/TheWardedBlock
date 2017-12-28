@@ -52,19 +52,15 @@ public class ItemWardBrush extends ItemTWB
 
             if(!player.isSneaking())
             {
-                System.out.println(blockAt);
-
                 if(blockAt == ModBlocks.BLOCK_WARD)
                 {
-                    System.out.println("add");
-
                     final TileEntityWard wards = (TileEntityWard) world.getTileEntity(pos);
 
                     wards.addWard(ward);
 
                     PlayerUtils.messageOnce(MESSAGE_SET, new TextComponentTranslation("Added ward " + WardType.WardNames.values()[ward]));
                 }
-                else if(!blockAt.isAir(stateAt, world, pos) && (stateAt.isOpaqueCube() || stateAt.getRenderType() == EnumBlockRenderType.MODEL))
+                else if(!blockAt.isAir(stateAt, world, pos) && stateAt.isOpaqueCube())
                 {
                     IBlockState state = ModBlocks.BLOCK_WARD.getDefaultState();
                     ItemStack stack = new ItemStack(ModBlocks.BLOCK_WARD);
@@ -72,6 +68,8 @@ public class ItemWardBrush extends ItemTWB
                     world.playEvent(2001, pos, Block.getStateId(state));
                     world.setBlockState(pos, state, 1 | 2);
                     state.getBlock().onBlockPlacedBy(world, pos, state, player, stack);
+
+                    System.out.println(state.getProperties());
 
                     TileEntityWard warded = (TileEntityWard) world.getTileEntity(pos);
 

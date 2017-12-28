@@ -28,8 +28,6 @@ public class TileEntityWard extends TileEntityTWB
         super.readFromNBT(nbt);
     }
 
-
-
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound nbt)
     {

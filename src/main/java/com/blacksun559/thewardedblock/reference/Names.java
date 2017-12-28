@@ -23,6 +23,7 @@ public final class Names
         public static final String ORE_END = "ore_end";
         public static final String ORE_NETHER = "ore_nether";
         public static final String ORE_OVERWORLD = "ore_overworld";
+        public static final String BLOCK_BARRIER = "block_barrier";
     }
 
     public static final class Dimensions

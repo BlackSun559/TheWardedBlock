@@ -8,4 +8,6 @@ public class Reference
     public static final String CLIENT_PROXY = "com.blacksun559.thewardedblock.proxy.ClientProxy";
     public static final String SERVER_PROXY = "com.blacksun559.thewardedblock.proxy.ServerProxy";
     public static final String GUI_FACTORY_CLASS = "com.blacksun559.thewardedblock.client.gui.GuiFactory";
+
+    public static final int ENTITY_DEMON = 559;
 }

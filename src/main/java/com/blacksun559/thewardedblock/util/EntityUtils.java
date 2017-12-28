@@ -18,7 +18,7 @@ public class EntityUtils
         final double distanceZ = (double) pos.getZ() - entity.posZ;
         final double distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ);
 
-        if(distance > 0 && (distanceX <= 1 && distanceX >= -1) && (distanceZ <= 1 && distanceZ >= -1))
+        if(distance > 0 && (distanceX <= 0.5 && distanceX >= -0.5) && (distanceZ <= 0.5 && distanceZ >= -0.5))
         {
             entity.motionX = distanceX / distance * force;
             entity.motionY = distanceY / distance * force;
