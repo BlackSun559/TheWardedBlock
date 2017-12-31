@@ -9,6 +9,8 @@ item.thewardedblock:item_bone_needle.name=Bone Needle
 item.thewardedblock:item_iron_needle.name=Iron Needle
 item.thewardedblock:item_file.name=File
 item.thewardedblock:item_knife.name=Carving Knife
+item.thewardedblock:item_tome.name=Warding Tome
+item.thewardedblock:item_toolkit.name=Warding Toolkit
 
 item.thewardedblock:bone_demon.name=Splintering Demon Bone
 item.thewardedblock:bone_demon.bone_demon_1.name=Cracked Demon Bone
@@ -17,6 +19,7 @@ item.thewardedblock:bone_demon.bone_demon_3.name=Flawless Demon Bone
 item.thewardedblock:bone_demon.bone_demon_4.name=Empowered Demon Bone
 
 item.thewardedblock:ingot_silver.name=Silver Ingot
+item.thewardedblock:ingot_electrum.name=Electrum Ingot
 
 item.thewardedblock:meat_demon.name=Demon Meat
 
@@ -36,6 +39,7 @@ tile.thewardedblock:ore_overworld_crystal.name=Crystal Ore
 
 #Blocks
 tile.thewardedblock:block_silver.name=Silver Block
+tile.thewardedblock:block_electrum.name=Electrum Block
 tile.thewardedblock:block_ward.name=Warded Block
 tile.thewardedblock:block_barrier.name=Ward Barrier
 

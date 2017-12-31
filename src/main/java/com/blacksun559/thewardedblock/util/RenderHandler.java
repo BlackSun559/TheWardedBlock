@@ -1,4 +1,4 @@
-package com.blacksun559.thewardedblock.util.handlers;
+package com.blacksun559.thewardedblock.util;
 
 import com.blacksun559.thewardedblock.entity.EntityDemon;
 import com.blacksun559.thewardedblock.entity.render.RenderDemon;

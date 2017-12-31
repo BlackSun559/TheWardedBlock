@@ -24,7 +24,7 @@ public class ItemDemonMeat extends ItemFoodTWB
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
     {
-        tooltip.add("Looks terrible... Smells even worse.");
+        tooltip.add("Looks terrible and smells even worse.");
         super.addInformation(stack, world, tooltip, flag);
     }
 

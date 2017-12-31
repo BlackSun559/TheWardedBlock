@@ -26,7 +26,7 @@ public class CapabilityEaten
 
     private static final EnumFacing DEFAULT_FACING = null;
 
-    private static final ResourceLocation ID = new ResourceLocation(Reference.MOD_ID, "Eaten");
+    private static final ResourceLocation ID = new ResourceLocation(Reference.MOD_ID, "EntityEaten");
 
     public static void register()
     {
@@ -43,7 +43,7 @@ public class CapabilityEaten
             {
                 instance.setEaten(((NBTTagInt)nbt).getInt());
             }
-        }, () -> new Eaten(null));
+        }, () -> new EntityEaten(null));
     }
 
     public static IEaten getEaten(final EntityLivingBase entity)
@@ -65,7 +65,7 @@ public class CapabilityEaten
         {
             if(event.getObject() instanceof EntityLivingBase)
             {
-                final Eaten eaten = new Eaten((EntityLivingBase) event.getObject());
+                final EntityEaten eaten = new EntityEaten((EntityLivingBase) event.getObject());
                 event.addCapability(ID, createProvider(eaten));
             }
         }

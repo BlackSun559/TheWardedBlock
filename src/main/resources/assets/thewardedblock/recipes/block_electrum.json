@@ -1,17 +1,17 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "sss",
-    "sss",
-    "sss"
+    "eee",
+    "eee",
+    "eee"
   ],
   "key": {
-    "s": {
+    "e": {
       "type": "forge:ore_dict",
-      "ore": "ingotSilver"
+      "ore": "ingotElectrum"
     }
   },
   "result": {
-    "item": "thewardedblock:block_silver"
+    "item": "thewardedblock:block_electrum"
   }
 }

@@ -30,15 +30,4 @@ public class EventHandler
             }
         }
     }
-
-    // Possibly use later
-//    @SubscribeEvent
-//    public void scroll(MouseEvent event)
-//    {
-//        int dWheel = event.getDwheel();
-//        if(dWheel != 0)
-//        {
-//            TWBPacketHandler.INSTANCE.sendToServer(new MouseEventMessage(dWheel > 0 ? 1 : 0));
-//        }
-//    }
 }

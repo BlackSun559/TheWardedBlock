@@ -1,4 +1,4 @@
-package com.blacksun559.thewardedblock.blocks;
+package com.blacksun559.thewardedblock.blocks.base;
 
 import com.blacksun559.thewardedblock.TheWardedBlock;
 import com.blacksun559.thewardedblock.init.ModBlocks;

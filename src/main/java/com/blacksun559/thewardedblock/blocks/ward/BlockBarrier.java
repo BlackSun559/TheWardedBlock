@@ -1,4 +1,4 @@
-package com.blacksun559.thewardedblock.blocks;
+package com.blacksun559.thewardedblock.blocks.ward;
 
 import com.blacksun559.thewardedblock.TheWardedBlock;
 import com.blacksun559.thewardedblock.init.ModBlocks;
@@ -7,6 +7,7 @@ import com.blacksun559.thewardedblock.materials.MaterialBarrier;
 import com.blacksun559.thewardedblock.tileentity.TileEntityWard;
 import com.blacksun559.thewardedblock.util.WardType;
 import com.blacksun559.thewardedblock.util.interfaces.IModel;
+import com.blacksun559.thewardedblock.util.interfaces.IWardBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -104,14 +105,14 @@ public class BlockBarrier extends Block implements IModel
             boolean validWard = false;
             TileEntityWard ward = null;
 
-            while(wardPos < 3 && !validWard)
+            while(wardPos < 4 && !validWard)
             {
-                if(world.getBlockState(pos.down(wardPos)).getBlock() == ModBlocks.BLOCK_WARD)
+                if(world.getBlockState(pos.down(wardPos)).getBlock() instanceof IWardBlock)
                 {
                     ward = (TileEntityWard) world.getTileEntity(pos.down(wardPos));
                     validWard = true;
                 }
-                else if(world.getBlockState(pos.down(wardPos)).getBlock() == ModBlocks.BLOCK_WARD)
+                else if(world.getBlockState(pos.down(wardPos)).getBlock() == ModBlocks.BLOCK_BARRIER)
                 {
                     wardPos++;
                 }

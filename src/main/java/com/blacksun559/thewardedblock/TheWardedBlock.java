@@ -5,12 +5,12 @@ import com.blacksun559.thewardedblock.init.ModCapabilities;
 import com.blacksun559.thewardedblock.init.ModEntities;
 import com.blacksun559.thewardedblock.init.ModMapGen;
 import com.blacksun559.thewardedblock.init.ModRecipes;
+import com.blacksun559.thewardedblock.network.TWBPacketHandler;
 import com.blacksun559.thewardedblock.proxy.IProxy;
 import com.blacksun559.thewardedblock.reference.Reference;
 import com.blacksun559.thewardedblock.util.LogHelper;
+import com.blacksun559.thewardedblock.util.RenderHandler;
 import com.blacksun559.thewardedblock.util.handlers.EventHandler;
-import com.blacksun559.thewardedblock.util.handlers.RenderHandler;
-import com.blacksun559.thewardedblock.util.handlers.TWBPacketHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -37,6 +37,8 @@ public class TheWardedBlock
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        proxy.preInit();
+
         TWBPacketHandler.init();
 
         thewardedblock = new CreativeTab(CreativeTabs.getNextID(), "thewardedblock");
@@ -51,6 +53,7 @@ public class TheWardedBlock
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        proxy.init();
         ModRecipes.registerRecipes();
         ModMapGen.registerWorldGenerators();
 
@@ -60,6 +63,7 @@ public class TheWardedBlock
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        proxy.postInit();
         MinecraftForge.EVENT_BUS.register(new EventHandler());
 
         LogHelper.info("Post Initialization Complete!");

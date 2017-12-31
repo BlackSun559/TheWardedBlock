@@ -3,11 +3,11 @@
   "ingredients": [
     {
       "type": "forge:ore_dict",
-      "ore": "blockSilver"
+      "ore": "blockElectrum"
     }
   ],
   "result": {
-    "item": "thewardedblock:ingot_silver",
+    "item": "thewardedblock:ingot_electrum",
     "count": 9
   }
 }

@@ -75,8 +75,6 @@ public class BlockOres extends Block implements IModel
     {
         final int metadata = stack.getMetadata();
 
-
-
         return EnumHandler.OreEnumType.byMetaData(metadata).getName();
     }
 

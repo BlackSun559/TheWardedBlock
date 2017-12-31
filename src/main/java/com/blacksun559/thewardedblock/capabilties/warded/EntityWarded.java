@@ -1,5 +1,7 @@
 package com.blacksun559.thewardedblock.capabilties.warded;
 
+import com.blacksun559.thewardedblock.network.PacketEntityWarded;
+import com.blacksun559.thewardedblock.network.TWBPacketHandler;
 import net.minecraft.entity.EntityLivingBase;
 
 import javax.annotation.Nullable;
@@ -47,7 +49,10 @@ public class EntityWarded implements IWarded
     @Override
     public void removeWard(int id)
     {
-        this.wardIDs.remove(id);
+        if(this.wardIDs.contains(id))
+        {
+            this.wardIDs.remove(this.wardIDs.get(id));
+        }
     }
 
     @Override
@@ -59,6 +64,7 @@ public class EntityWarded implements IWarded
     @Override
     public void setWards(int[] wards)
     {
+        this.wardIDs.clear();
         for(int ward : wards)
         {
             this.wardIDs.add(ward);
@@ -68,6 +74,11 @@ public class EntityWarded implements IWarded
     @Override
     public void sync()
     {
-        // NOOP
+        if(this.entity != null && !this.entity.getEntityWorld().isRemote)
+        {
+            IWarded wards = CapabilityEntityWarded.getWards(this.entity);
+            PacketEntityWarded entityWarded = new PacketEntityWarded(wards.getWards());
+            TWBPacketHandler.sendToServer(entityWarded);
+        }
     }
 }

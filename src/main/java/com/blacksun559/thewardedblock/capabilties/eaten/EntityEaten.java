@@ -1,9 +1,11 @@
 package com.blacksun559.thewardedblock.capabilties.eaten;
 
+import com.blacksun559.thewardedblock.network.PacketEntityEaten;
+import com.blacksun559.thewardedblock.network.TWBPacketHandler;
 import jline.internal.Nullable;
 import net.minecraft.entity.EntityLivingBase;
 
-public class Eaten implements IEaten
+public class EntityEaten implements IEaten
 {
     private int eaten;
     private final EntityLivingBase entity;
@@ -29,10 +31,15 @@ public class Eaten implements IEaten
     @Override
     public void sync()
     {
-        // NOOP
+        if(this.entity != null && !this.entity.getEntityWorld().isRemote)
+        {
+            IEaten iEaten = CapabilityEaten.getEaten(this.entity);
+            PacketEntityEaten entityEaten = new PacketEntityEaten(iEaten.getEaten());
+            TWBPacketHandler.sendToServer(entityEaten);
+        }
     }
 
-    public Eaten(@Nullable final EntityLivingBase entity)
+    public EntityEaten(@Nullable final EntityLivingBase entity)
     {
         this.entity = entity;
     }

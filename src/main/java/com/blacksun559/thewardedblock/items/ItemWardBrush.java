@@ -1,6 +1,7 @@
 package com.blacksun559.thewardedblock.items;
 
 import com.blacksun559.thewardedblock.TheWardedBlock;
+import com.blacksun559.thewardedblock.blocks.ward.BlockWard;
 import com.blacksun559.thewardedblock.init.ModBlocks;
 import com.blacksun559.thewardedblock.items.Base.ItemTWB;
 import com.blacksun559.thewardedblock.tileentity.TileEntityWard;
@@ -9,14 +10,18 @@ import com.blacksun559.thewardedblock.util.WardType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumRarity;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.common.property.IExtendedBlockState;
 
 public class ItemWardBrush extends ItemTWB
 {
@@ -27,7 +32,6 @@ public class ItemWardBrush extends ItemTWB
     public ItemWardBrush(String name)
     {
         super(name);
-        this.setMaxDamage(250);
     }
 
     @Override
@@ -37,18 +41,10 @@ public class ItemWardBrush extends ItemTWB
         {
             NBTTagCompound nbt = player.getHeldItem(hand).getTagCompound();
             final String key = "wardTWB";
-            int ward = 0;
             IBlockState stateAt = world.getBlockState(pos);
             Block blockAt = stateAt.getBlock();
 
-            if(nbt == null)
-            {
-                nbt = new NBTTagCompound();
-            }
-            else
-            {
-                ward = nbt.getInteger(key);
-            }
+            int ward = nbt.getInteger(key);
 
             if(!player.isSneaking())
             {
@@ -60,20 +56,23 @@ public class ItemWardBrush extends ItemTWB
 
                     PlayerUtils.messageOnce(MESSAGE_SET, new TextComponentTranslation("Added ward " + WardType.WardNames.values()[ward]));
                 }
-                else if(!blockAt.isAir(stateAt, world, pos) && stateAt.isOpaqueCube())
+                else if(!blockAt.isAir(stateAt, world, pos) && stateAt.isOpaqueCube() && blockAt != Blocks.GRASS)
                 {
-                    IBlockState state = ModBlocks.BLOCK_WARD.getDefaultState();
-                    ItemStack stack = new ItemStack(ModBlocks.BLOCK_WARD);
+                    IExtendedBlockState state = (IExtendedBlockState) ModBlocks.BLOCK_WARD.getDefaultState();
+
+                    state = state.withProperty(BlockWard.SOURCE_BLOCK, stateAt);
+                    ItemStack stack = new ItemStack(state.getBlock());
 
                     world.playEvent(2001, pos, Block.getStateId(state));
                     world.setBlockState(pos, state, 1 | 2);
                     state.getBlock().onBlockPlacedBy(world, pos, state, player, stack);
 
-                    System.out.println(state.getProperties());
-
                     TileEntityWard warded = (TileEntityWard) world.getTileEntity(pos);
-
+                    warded.setSourceBlock(blockAt);
+                    warded.setSourceMeta(blockAt.getMetaFromState(stateAt));
                     warded.addWard(ward);
+                    warded.syncUpdates();
+
 
                     PlayerUtils.messageOnce(MESSAGE_PLACE, new TextComponentTranslation("Added ward " + WardType.WardNames.values()[ward]));
                 }
@@ -123,17 +122,5 @@ public class ItemWardBrush extends ItemTWB
         }
 
         return new ActionResult<>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
-    }
-
-    @Override
-    public EnumRarity getRarity(ItemStack stack)
-    {
-        return EnumRarity.UNCOMMON;
-    }
-
-    @Override
-    public boolean hasEffect(ItemStack stack)
-    {
-        return true;
     }
 }

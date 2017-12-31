@@ -5,7 +5,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class WardType
                     break;
 
                 case 1:
-                    valid =  entity instanceof EntityCow;
+                    valid = entity instanceof EntityPlayer;
                     break;
 
                 case 2:
@@ -52,7 +52,7 @@ public class WardType
     public enum WardNames
     {
         item,
-        arrow,
+        player,
         zombie,
         skeleton,
         creeper
