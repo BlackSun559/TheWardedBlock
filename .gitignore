@@ -27,5 +27,4 @@ gradlew.bat
 /classes
 
 ## dev image src files
-/TWB_Item_Src
-/TWB_Block_Src
+/twbImages
