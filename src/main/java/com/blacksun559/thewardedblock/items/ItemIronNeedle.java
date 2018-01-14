@@ -61,6 +61,7 @@ public class ItemIronNeedle extends ItemTWB
             }
 
             PlayerUtils.messageOnce(MESSAGE_WARD, new TextComponentTranslation(target.getName() + " has been warded."));
+
             warded.addWard(1);
         }
     }

@@ -133,6 +133,7 @@ public class BlockBarrier extends Block implements IModel
         }
     }
 
+
     @Override
     public void registerModels()
     {

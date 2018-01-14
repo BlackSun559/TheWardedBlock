@@ -55,7 +55,7 @@ public class BlockWard extends BlockTWB implements ITileEntityProvider, IWardBlo
     @Override
     public BlockRenderLayer getBlockLayer()
     {
-        return BlockRenderLayer.SOLID;
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @Override
@@ -161,6 +161,17 @@ public class BlockWard extends BlockTWB implements ITileEntityProvider, IWardBlo
         }
 
         return notBrush;
+    }
+
+    @Override
+    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
+    {
+        TileEntityWard entityWard = (TileEntityWard) te;
+
+        if(entityWard != null)
+        {
+            entityWard.getSourceBlock().harvestBlock(worldIn, player, pos, entityWard.getSourceBlock().getStateFromMeta(entityWard.getSourceMeta()), null, stack);
+        }
     }
 
     private void placeBarrier(World world, BlockPos pos)

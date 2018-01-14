@@ -1,6 +1,10 @@
 {
   "forge_marker": 1,
   "defaults": {
+    "textures": {
+      "all": "thewardedblock:blocks/block_ward",
+      "overlay": "thewardedblock:blocks/block_ward_overlay"
+    },
     "model": "thewardedblock:block_ward"
   },
   "variants": {

@@ -30,6 +30,9 @@ public class WardBakedModel implements IBakedModel
     @Override
     public List<BakedQuad> getQuads(@Nullable IBlockState state, @Nullable EnumFacing facing, long rand)
     {
+        List<BakedQuad> quads = null;
+
+        quads = handleBlockState(state).getQuads(state, facing, rand);
         return handleBlockState(state).getQuads(state, facing, rand);
     }
 

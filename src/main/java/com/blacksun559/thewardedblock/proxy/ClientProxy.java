@@ -1,6 +1,7 @@
 package com.blacksun559.thewardedblock.proxy;
 
 import com.blacksun559.thewardedblock.reference.Reference;
+import com.blacksun559.thewardedblock.util.RenderHandler;
 import com.blacksun559.thewardedblock.util.handlers.RegistryHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -21,6 +22,7 @@ public class ClientProxy implements IProxy
     public void preInit()
     {
         RegistryHandler.registerWardCamo();
+        RenderHandler.registerEntityRenders();
     }
 
     @Override

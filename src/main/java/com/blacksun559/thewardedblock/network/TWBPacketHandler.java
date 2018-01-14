@@ -26,6 +26,7 @@ public class TWBPacketHandler
         INSTANCE.registerMessage(PacketPlayerKnowledge.Handler.class, PacketPlayerKnowledge.class, id++, Side.SERVER);
         INSTANCE.registerMessage(PacketEntityWarded.Handler.class, PacketEntityWarded.class, id++, Side.SERVER);
         INSTANCE.registerMessage(PacketEntityEaten.Handler.class, PacketEntityEaten.class, id++, Side.SERVER);
+        INSTANCE.registerMessage(PacketPlayerMessage.Handler.class, PacketPlayerMessage.class, id++, Side.CLIENT);
     }
 
     public static void sendToNearby(World world, BlockPos pos, IMessage toSend)

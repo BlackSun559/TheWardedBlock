@@ -10,6 +10,7 @@ import com.blacksun559.thewardedblock.util.WardType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,8 +19,6 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.property.IExtendedBlockState;
 
@@ -54,9 +53,9 @@ public class ItemWardBrush extends ItemTWB
 
                     wards.addWard(ward);
 
-                    PlayerUtils.messageOnce(MESSAGE_SET, new TextComponentTranslation("Added ward " + WardType.WardNames.values()[ward]));
+                    PlayerUtils.sendMessage(MESSAGE_SET, "Added ward " + WardType.WardNames.values()[ward], (EntityPlayerMP) player);
                 }
-                else if(!blockAt.isAir(stateAt, world, pos) && stateAt.isOpaqueCube() && blockAt != Blocks.GRASS)
+                else if(!blockAt.isAir(stateAt, world, pos) && stateAt.isOpaqueCube() && blockAt != Blocks.GRASS && !blockAt.hasTileEntity(stateAt))
                 {
                     IExtendedBlockState state = (IExtendedBlockState) ModBlocks.BLOCK_WARD.getDefaultState();
 
@@ -73,8 +72,7 @@ public class ItemWardBrush extends ItemTWB
                     warded.addWard(ward);
                     warded.syncUpdates();
 
-
-                    PlayerUtils.messageOnce(MESSAGE_PLACE, new TextComponentTranslation("Added ward " + WardType.WardNames.values()[ward]));
+                    PlayerUtils.sendMessage(MESSAGE_PLACE, "Added ward " + WardType.WardNames.values()[ward], (EntityPlayerMP) player);
                 }
             }
         }
@@ -110,12 +108,14 @@ public class ItemWardBrush extends ItemTWB
                         nbt.setInteger(key, 0);
                     }
                 }
-                PlayerUtils.messageOnce(MESSAGE_WARD_TYPE, new TextComponentString("Ward: " + WardType.WardNames.values()[nbt.getInteger(key)]));
+
+                PlayerUtils.sendMessage(MESSAGE_WARD_TYPE, "Ward: " + WardType.WardNames.values()[nbt.getInteger(key)], (EntityPlayerMP) player);
             }
             else if(!nbt.hasKey(key))
             {
                 nbt.setInteger(key, 0);
-                PlayerUtils.messageOnce(MESSAGE_WARD_TYPE, new TextComponentString("Ward: " + WardType.WardNames.values()[nbt.getInteger(key)]));
+
+                PlayerUtils.sendMessage(MESSAGE_WARD_TYPE, "Ward: " + WardType.WardNames.values()[nbt.getInteger(key)], (EntityPlayerMP) player);
             }
 
             stack.setTagCompound(nbt);

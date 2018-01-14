@@ -9,7 +9,6 @@ import com.blacksun559.thewardedblock.network.TWBPacketHandler;
 import com.blacksun559.thewardedblock.proxy.IProxy;
 import com.blacksun559.thewardedblock.reference.Reference;
 import com.blacksun559.thewardedblock.util.LogHelper;
-import com.blacksun559.thewardedblock.util.RenderHandler;
 import com.blacksun559.thewardedblock.util.handlers.EventHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -45,7 +44,6 @@ public class TheWardedBlock
 
         ModCapabilities.registerCapabilities();
         ModEntities.registerEntities();
-        RenderHandler.registerEntityRenders();
 
         LogHelper.info("Pre Initialization Complete!");
     }
